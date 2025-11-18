@@ -1,0 +1,144 @@
+.approvedForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  top: 0;
+  right: 0;
+}
+
+.approvedFeild {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.approvedRow {
+  display: flex;
+  gap: 10px;
+}
+
+.approvedRow label {
+  flex: 1;
+}
+
+.approvedForm label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  gap: 10px;
+  color: var(--primmary-color);
+}
+
+.approvedForm input,
+.approvedForm textarea {
+  /* flex: 1; */
+  /* height: 25px; */
+  width: 250px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  box-shadow: -3px 0 8px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+.approvedForm textarea {
+  width: calc(100% - 20px);
+  height: 80px;
+}
+
+.approvedActions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.approvedActions button {
+  padding: 8px 16px;
+  background: #0070ac;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.popup-header {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 29.26px;
+  letter-spacing: 1.5%;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: Auto;
+  color: #555;
+}
+
+.declineBtn {
+  background-color: #c95151 !important;
+}
+
+.approveBtn {
+  background-color: #00ac5f !important;
+}
+
+.declineBtn,
+.approveBtn {
+  margin: 0 5px;
+  border-radius: 18px !important;
+}
+
+.declineButton,
+.approveButton,
+.holdButton {
+  border: none;
+  width: 90px;
+  border-radius: 18px;
+  border: none;
+  padding: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  /* color: white; */
+}
+
+.declineButton {
+  background-color: #f57679;
+  border-radius: 18px !important;
+}
+
+.approveButton {
+  background-color: #67d352;
+  border-radius: 18px !important;
+}
+
+.holdButton {
+  background-color: #d3d152;
+}
+
+.popup-single-feilds{
+  width: 450px;
+  margin-bottom: 15px;
+}
+
+.popup-single-feilds input,.popup-single-feilds select{
+  width: 180px;
+  height: 30px;
+  box-shadow: 1px 1px 4px #0000005f;
+  background-color: white;
+  border-radius: 4px;
+  padding-left: 4px;
+}
+.popup-single-feilds label{
+  width: 180px;
+  padding-right: 20px;
+  color: var(--primmary-color);
+  font-weight: 600;
+  font-size: 16px;
+  text-align: right;
+}
+.popup-title{
+  font-size: 24px;
+  text-align: left;
+}

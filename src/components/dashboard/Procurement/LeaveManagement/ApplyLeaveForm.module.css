@@ -1,0 +1,81 @@
+.formGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  column-gap: 32px;
+  row-gap: 14px;
+  max-width: 1000px;          /* Increased width */
+  margin: 40px auto 0 auto;
+  padding: 38px 44px 34px 38px;  /* More right/left padding */
+  background: #fff;
+  border-radius: 28px;
+  /* Subtle box-shadow for card look */
+  box-shadow: 0 4px 18px rgba(40,50,90,0.05);
+}
+
+
+.leftCol, .rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formRow {
+  display: flex;
+  align-items: baseline;   /* <-- THIS LINE fixes it! */
+  gap: 14px;
+}
+
+.formRow label {
+  min-width: 98px;
+  font-weight: 500;
+  color: #222;
+  font-size: 15px;
+  text-align: left;
+}
+
+.formRow input,
+.formRow select {
+  width: 150px;        /* More compact fields */
+  padding: 5px 8px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+}
+
+.miniSelect {
+  width: 60px !important;
+  margin-left: 5px;
+}
+
+.reasonRow {
+  grid-column: span 2;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 13px;
+  gap: 8px;
+  padding: 6px;
+}
+.reasonRow textarea {
+  width: 75%;
+  min-height: 48px;
+  border-radius: 6px;
+  padding: 8px;
+  border: 1px solid #bbb;
+  font-size: 14px;
+  resize: none;
+}
+
+.submitBtn {
+  grid-column: span 2;
+  margin: 18px auto 0 auto;
+  background: #16b162;
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 7px 36px;
+  cursor: pointer;
+  transition: background 0.17s;
+}
+.submitBtn:hover { background: #119a53; }

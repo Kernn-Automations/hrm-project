@@ -1,0 +1,119 @@
+.container {
+  padding: 20px;
+}
+
+.appContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.popupContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.roleInputRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.singleSelect {
+  flex: 1;
+  padding: 6px;
+}
+
+.addButton {
+  padding: 6px 10px;
+  background-color: #3686a0;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.roleList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.roleItem {
+  background-color: #eee;
+  padding: 6px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.removeBtn {
+  margin-left: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: red;
+}
+
+.popupActions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.submitBtn {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cancelBtn {
+  background-color: red;
+  color: white;
+  padding: 8px 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.viewButton {
+  padding: 6px 12px;
+  background-color: #397595;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Task Table css */
+.square-table{
+    border-spacing: 0;
+}
+
+.square-table thead th {
+    background-color: #80BBC5;
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.square-table tbody td {
+    background-color: #DDDDDD;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 8px 10px;
+}

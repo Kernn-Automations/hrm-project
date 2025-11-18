@@ -1,0 +1,116 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+  gap: 20px;
+}
+.viewbtn {
+  padding: 3px 10px;
+  font-size: 12px;
+  background-color: #2FA924;
+  font-weight: bold;
+  color: black;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+
+.reportButton {
+  background-color: #78A9C4;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 40px;
+  border: none;
+  height: 78px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 438px;
+  transition: background-color 0.2s ease;
+}
+
+.reportButton:hover {
+  background-color: #5f90b0;
+}
+.tableContainer {
+  display: flex;
+  justify-content: center;
+  padding: 10px 15px;
+  background-color: #E6E6E6;
+  border-radius: 10px;
+}
+
+.drawerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 10px 20px;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.formRow label {
+  font-weight: bold;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.formRow input,
+.formRow select,
+.formRow textarea {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.footerButtons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.approveBtn,
+.declineBtn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.approveBtn {
+  background-color: #28a745; /* Green */
+}
+
+.declineBtn {
+  background-color: #dc3545; /* Red */
+}
+
+.approvetrayBtn {
+    padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  background-color: #28a745; /* Green for Edit */
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.declinetrayBtn {
+ padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  background-color: #dc3545; /* Red for Cancel */
+  color: white;
+  cursor: pointer;
+}

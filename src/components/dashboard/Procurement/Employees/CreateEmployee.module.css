@@ -1,0 +1,91 @@
+.outerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background-color: #f7f7f7;
+  min-height: 50vh;
+}
+
+.formContainer {
+  display: flex;
+  width: 900px;
+  background-color: #e6e6e6;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Each side */
+.leftPanel,
+.rightPanel {
+  width: 52%;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Add vertical center border line */
+.leftPanel {
+  border-right: 1px solid #ccc;
+}
+
+/* Each row with label + input */
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.row label {
+  width: 120px;
+  font-weight: 500;
+  font-size: 15px;
+  margin-right: 10px;
+  color: #333;
+}
+
+.row input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Icon section */
+.iconBox {
+  margin-top: 10px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  
+}
+
+/* Buttons */
+.buttonGroup {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.submit {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 26px;
+  font-size: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 26px;
+  font-size: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}

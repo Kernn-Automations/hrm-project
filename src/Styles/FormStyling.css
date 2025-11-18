@@ -1,0 +1,41 @@
+.form-container {
+  width: 95% !important;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px; /* space between boxes */
+}
+
+.form-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.form-box input,
+.form-box select {
+  width: 170px;
+  height: 30px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.538);
+  border-radius: 4px;
+  padding-left: 4px;
+}
+
+.form-box label {
+  color: var(--primmary-color);
+  font-size: 16px;
+  font-weight: 600;
+  width: 160px;
+  text-align: right;
+  position: relative;
+}
+
+.form-box textarea {
+  width: 300px;
+  height: 80px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.538);
+  border-radius: 4px;
+  padding-left: 4px;
+  background-color: white;
+}

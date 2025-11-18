@@ -1,0 +1,79 @@
+.tableContainer {
+  display: flex;
+  justify-content: center;
+  padding: 10px 15px;
+  background-color: #E6E6E6;
+  border-radius: 10px;
+}
+
+.statusTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  background-color: white;
+  color: #333;
+}
+
+.statusTable th,
+.statusTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.statusTable th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.statusTable tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.statusTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+.pendingBtn {
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #f1c40f;
+  color: black;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.approveBtn {
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #2FA924;
+  color: black;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.declineBtn {
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #e74c3c;
+  color: black;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.viewBtn {
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #2FA924;
+  color: black;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}

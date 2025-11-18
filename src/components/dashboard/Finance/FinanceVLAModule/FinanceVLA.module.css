@@ -1,0 +1,328 @@
+.paymentsbox {
+  width: 350px !important;
+  height: 250px;
+  background-color: var(--navbar-light);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  border-radius: 15px;
+  box-shadow: 1px 1px 4px #00000093;
+  margin: 10px;
+  text-align: center;
+}
+
+.paymentsbox h5 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 39.01px;
+  text-align: center;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: auto;
+  color: var(--navbar-color);
+}
+.paymentsbox p {
+  font-size: 16px;
+  font-weight: 600;
+}
+.plight {
+  color: #555;
+}
+
+.reportButton {
+  background-color: #78a9c4;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 40px;
+  border: none;
+  height: 78px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 438px;
+  transition: background-color 0.2s ease;
+}
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+  gap: 20px;
+}
+.reportButton:hover {
+  background-color: #5f90b0;
+}
+.tableContainer {
+  display: flex;
+  justify-content: center;
+  padding: 10px 15px;
+  background-color: #e6e6e6;
+  border-radius: 10px;
+}
+
+.transportContainer {
+  padding: 20px;
+  background-color: #e4e4e4;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  justify-self: end;
+  margin-bottom: 20px;
+  /* width: 100%; */
+  /* margin-left: 200px; */
+  /* direction: rtl; */
+}
+
+.transportForm {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  /* margin-bottom: 20px; */
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.transportForm label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: #686868;
+}
+
+.transportForm input,
+.transportForm select {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #c9c7c7;
+  min-width: 140px;
+}
+
+.transportTable {
+  /* margin-top: 40px;
+    box-sizing: border-box; */
+  display: flex;
+  justify-content: center;
+}
+
+/* .transportHeader th {
+    background-color: #80BBC5;
+    color: white;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.transportBody td {
+    background-color: #DDDDDD;
+    padding-left: 15px;
+} */
+
+.submitTransportBtn {
+  background-color: #22a367;
+  color: white;
+  padding: 6px 20px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  margin: auto 5px;
+}
+
+.newbutton {
+  background-color: #a3a4a4;
+  padding: 6px 20px;
+  border-radius: 4px;
+  border: none;
+  font-weight: 600;
+}
+
+.cancelBtnTransport {
+  background-color: #c95151;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+}
+.editbtn {
+  background-color: #516dc9;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+}
+
+.excelBtn,
+.printBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: auto 10px;
+}
+
+.excelBtn {
+  background-color: #006100;
+  color: white;
+}
+
+.printBtn {
+  background-color: #0e6499;
+  color: white;
+}
+
+.approvedForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  top: 0;
+  right: 0;
+}
+
+.approvedFeild {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.approvedRow {
+  display: flex;
+  gap: 10px;
+}
+
+.approvedRow label {
+  flex: 1;
+}
+
+.approvedForm label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  gap: 10px;
+}
+
+.approvedForm input,
+.approvedForm textarea {
+  /* flex: 1; */
+  /* height: 25px; */
+  width: 250px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  box-shadow: -3px 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.approvedForm textarea {
+  width: calc(100% - 20px);
+  height: 80px;
+}
+
+.approvedActions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.approvedActions button {
+  padding: 8px 20px;
+  background: #0070ac;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.declineBtn {
+  background-color: #c95151 !important;
+}
+
+.approveBtn {
+  background-color: #00ac5f !important;
+}
+
+.declineBtn,
+.approveBtn {
+  margin: 0 5px;
+  border-radius: 18px !important;
+}
+
+.declineButton,
+.approveButton,
+.holdButton {
+  border: none;
+  width: 90px;
+  border-radius: 18px;
+  border: none;
+  padding: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  /* color: white; */
+}
+
+.declineButton {
+  background-color: #f57679;
+  border-radius: 18px !important;
+}
+
+.approveButton {
+  background-color: #67d352;
+  border-radius: 18px !important;
+}
+
+.holdButton {
+  background-color: #d3d152;
+}
+
+.submitRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.submitBtn {
+  background-color: #00a651;
+  color: white;
+  font-size: 16px;
+  padding: 5px 24px;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin: auto 10px;
+}
+
+.submitBtn:hover {
+  background-color: #008f45;
+}
+
+.cancelBtn {
+  background-color: #c95151;
+  color: white;
+  font-size: 16px;
+  padding: 5px 24px;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin: auto 10px;
+}
+
+.cancelBtn:hover {
+  background-color: #7d3131;
+}

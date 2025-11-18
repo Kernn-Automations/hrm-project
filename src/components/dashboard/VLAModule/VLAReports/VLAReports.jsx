@@ -1,0 +1,181 @@
+import React, { useState } from "react";
+import styles from "./VLAReports.module.css";
+function VLAReports() {
+  const date = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+    .toISOString()
+    .slice(0, 10);
+
+  const today = new Date(Date.now()).toISOString().slice(0, 10);
+
+  const [from, setFrom] = useState(date);
+  const [to, setTo] = useState(today);
+  return (
+    <>
+      <div className={styles.transportContainer}>
+        <div className={styles.transportForm}>
+          <label htmlFor="">From : </label>
+          <input
+            type="date"
+            value={from}
+            onChange={(e) => setFrom(e.target.value)}
+          />
+          <label htmlFor="">To : </label>
+          <input
+            type="date"
+            value={to}
+            onChange={(e) => setTo(e.target.value)}
+          />
+          <label htmlFor="">Shift : </label>
+          <select name="" id="">
+            <option value="">AM</option>
+            <option value="">PM</option>
+            <option value="">All</option>
+          </select>
+          <label htmlFor="">Milk type : </label>
+          <select name="" id="">
+            <option value="">--select--</option>
+            <option value="">Cow</option>
+            <option value="">Buffalo</option>
+          </select>
+        </div>
+        <div className="d-flex justify-content-center">
+          <div className="d-flex ">
+            <button className={styles.excelBtn}>
+              <span>Excel</span>
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 34 37"
+                fill="black"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <mask
+                  id="mask0_27_1345"
+                  maskType="luminance"
+                  maskUnits="userSpaceOnUse"
+                  x="0"
+                  y="0"
+                  width="34"
+                  height="37"
+                >
+                  <path
+                    d="M4.5 10.625V2.75C4.5 2.28587 4.68437 1.84075 5.01256 1.51256C5.34075 1.18437 5.78587 1 6.25 1H30.75C31.2141 1 31.6592 1.18437 31.9874 1.51256C32.3156 1.84075 32.5 2.28587 32.5 2.75V34.25C32.5 34.7141 32.3156 35.1592 31.9874 35.4874C31.6592 35.8156 31.2141 36 30.75 36H6.25C5.78587 36 5.34075 35.8156 5.01256 35.4874C4.68437 35.1592 4.5 34.7141 4.5 34.25V26.375"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M24.625 10.625H27.25M22 17.625H27.25M22 24.625H27.25"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M1 10.625H16.75V26.375H1V10.625Z"
+                    fill="white"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M6.25 15.875L11.5 21.125M11.5 15.875L6.25 21.125"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </mask>
+                <g mask="url(#mask0_27_1345)">
+                  <path d="M-2.5 -2.5H39.5V39.5H-2.5V-2.5Z" fill="white" />
+                </g>
+              </svg>
+            </button>
+            <button className={styles.printBtn}>
+              <span>Print</span>
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 35 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M28 6.66667H7V0H28V6.66667ZM28 15.8333C28.4958 15.8333 28.9117 15.6733 29.2477 15.3533C29.5837 15.0333 29.7512 14.6378 29.75 14.1667C29.7488 13.6956 29.5808 13.3 29.246 12.98C28.9112 12.66 28.4958 12.5 28 12.5C27.5042 12.5 27.0888 12.66 26.754 12.98C26.4192 13.3 26.2512 13.6956 26.25 14.1667C26.2488 14.6378 26.4168 15.0339 26.754 15.355C27.0912 15.6761 27.5065 15.8356 28 15.8333ZM24.5 26.6667V20H10.5V26.6667H24.5ZM28 30H7V23.3333H0V13.3333C0 11.9167 0.510417 10.7294 1.53125 9.77167C2.55208 8.81389 3.79167 8.33444 5.25 8.33333H29.75C31.2375 8.33333 32.4847 8.81278 33.4915 9.77167C34.4983 10.7306 35.0012 11.9178 35 13.3333V23.3333H28V30Z"
+                  fill="white"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div className="d-flex">
+            <button className={styles.submitTransportBtn}>Submit</button>
+            <button
+              className={styles.cancelBtnTransport}
+              onClick={() => navigate("purchases")}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="d-flex justify-content-center p-3">
+        <table className="w-75 square-table">
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Rythu Code</th>
+              <th>Shift</th>
+              <th>Milk Type</th>
+              <th>Sample Number</th>
+              <th>Quantity</th>
+              <th>CLR</th>
+              <th>SNF</th>
+              <th>Fat</th>
+              <th>Milk Class</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>00/00/0000</td>
+              <td>00:00</td>
+              <td>R56789</td>
+              <td>AM</td>
+              <td>Cow</td>
+              <td>234567</td>
+              <td>50</td>
+              <td>4.5</td>
+              <td>5.5</td>
+              <td>8.5</td>
+              <td>High</td>
+              <td>view</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>00/00/0000</td>
+              <td>00:00</td>
+              <td>R56789</td>
+              <td>AM</td>
+              <td>Cow</td>
+              <td>234567</td>
+              <td>50</td>
+              <td>4.5</td>
+              <td>5.5</td>
+              <td>8.5</td>
+              <td>High</td>
+              <td>view</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
+}
+
+export default VLAReports;

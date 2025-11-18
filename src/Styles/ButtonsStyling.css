@@ -1,0 +1,87 @@
+.excelBtn,
+.printBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: auto 10px;
+  background-color: transparent;
+}
+
+.printBtn path{
+  fill: black;
+} 
+
+.excelBtn svg * {
+  fill: black !important;
+  stroke: black !important;
+}
+
+.excelBtn {
+  /* background-color: #006100; */
+  color: #006100;
+  border: 1.5px solid #006100;
+}
+
+.printBtn {
+  /* background-color: #0e6499;
+  color: white; */
+  color: #0e6499;
+  border: 1.5px solid #0e6499;
+}
+
+
+
+.submitbtn,.generatebtn,
+.cancelbtn {
+  min-width: 80px;
+  height: 27px;
+  padding: 6px 10px;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 15.94px;
+  letter-spacing: 1.5%;
+  border-radius: 4px;
+  margin-right: 20px;
+  /* box-shadow: 1px 1px 3px #333; */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.generatebtn{
+  align-items: center;
+  display: flex;
+  align-items: center;
+  padding: 20px 50px;
+}
+
+.submitbtn {
+  background-color: #2fa924;
+}
+.cancelbtn {
+  background-color: #fd3b3b;
+}
+.generatebtn {
+  background-color: #2fa924;
+}
+
+.submitbtn:hover {
+  background-color: #24821c;
+}
+.cancelbtn:hover {
+  background-color: #ce3030;
+}
+.submitbtn:disabled {
+  background-color: #97ef8f;
+}
+
+
+.submitbtn:active, .cancelbtn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+

@@ -1,0 +1,25 @@
+.foot {
+  position: sticky;
+  top: 95vh;
+  padding-top: 30px;
+  /* margin-top: 30px; */
+  
+}
+.footContent{
+  width: 100%;
+  text-align: center;
+}
+.foot p {
+  /* font-family: Montserrat; */
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14.63px;
+  letter-spacing: 0.015em; 
+  text-align: center;
+}
+
+.foot a{
+  text-decoration: none;
+   color: #a92426;
+  font-weight: 700;
+}

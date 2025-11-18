@@ -1,0 +1,84 @@
+.formContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 30px;
+  align-items: start;
+}
+
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+}
+
+.profileRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 85%;
+  margin-bottom: 20px;
+}
+
+.backButton {
+  padding: 4px 24px;
+  justify-content: end;
+  background-color: #e53935;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.backButton:hover {
+  background-color: #c62828;
+}
+
+.profileImage {
+  width: 100px;
+  height: 100px;
+}
+
+.imageCircle {
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+
+.profileSpacer {
+  flex: 1;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldGroup label {
+  margin-bottom: 4px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.fieldGroup input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+}

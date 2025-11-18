@@ -1,0 +1,43 @@
+.leaveNavWrapper {
+  background: #EFEFEF;
+  padding: 15px 30px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.leaveNav {
+  display: flex;
+  gap: 23px;
+  justify-content: center;
+  align-items: center;
+}
+
+.navLink {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0070AC;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.18s;
+  letter-spacing: 0.2px;
+}
+
+.active {
+  font-weight: 700;
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 6px;
+  background-color: #0070AC;
+  border-radius: 5px;
+}

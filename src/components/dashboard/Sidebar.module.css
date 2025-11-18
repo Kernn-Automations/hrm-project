@@ -1,0 +1,161 @@
+.sidebar {
+  width: 70px;
+  height: 100vh;
+  background: #d9d9d9;
+  color: black;
+  position: fixed;
+  left: 0;
+  top: 0;
+  /* box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1); */
+  font-size: 13px;
+  transition: 0.2s ease;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.sidebar:hover {
+  width: 220px;
+}
+.link span,
+.refreshBtn {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.sidebar:hover .link span,
+.sidebar:hover .refreshBtn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.refreshBtn {
+  background: transparent;
+  font-size: 0px;
+  color: black;
+  border: none;
+  font-weight: 600;
+}
+
+.sidebar:hover .refreshBtn {
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  /* gap: 5px; */
+  justify-content: space-around;
+  padding: 5px 10px;
+  height: calc(100% - 90px);
+  margin-bottom: 20px;
+}
+
+.link a {
+  display: flex;
+  align-items: center;
+  height: 35px;
+  gap: 15px;
+  padding: 3px 13px;
+  color: black;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s ease;
+  font-weight: 600;
+}
+
+
+
+.link svg g path {
+  fill: black;
+  stroke: black;
+}
+
+
+.link svg > path {
+  stroke: black;
+}
+
+.link:hover svg > path,
+.active  svg > path {
+  stroke: white;
+
+}
+
+.link:hover {
+  background-color: var(--primmary-color);
+  border-radius: 5px;
+  color: white;
+  transition: 0.2s ease;
+  transform: scale(1.05);
+}
+
+
+
+.link:hover a {
+  /* color: var(--primmary-color); */
+  color: white;
+  font-weight: 600;
+  transform: translate(10px);
+}
+
+.active a {
+  color: var(--primmary-color);
+  font-weight: 600;
+}
+.link:hover .navicon svg,
+.active .navicon svg {
+  width: 22px;
+}
+
+.link:hover .navicon svg path,
+.link:hover.navicon svg g path{
+  /* color: black !important; */
+  /* stroke: var(--primmary-color) !important; */
+  stroke: white;
+}
+
+.active .navicon svg path,
+.active .navicon svg g path {
+  stroke: var(--primmary-color);
+}
+
+.link:hover .navicon svg g path {
+  fill: white;
+  /* stroke: none; */
+}
+
+.active .navicon svg g path{
+  fill: var(--primmary-color);
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: white;
+  overflow: hidden;
+  margin-left: 16px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  transition: 0.3s ease;
+}
+
+.logo img {
+  width: calc(100% - 10px);
+  margin: 5px;
+  height: auto;
+  object-fit: cover;
+}
+
+.navicon svg {
+  font-size: 20px;
+  width: 20px;
+}
+
+.navicon {
+  height: 30px;
+}

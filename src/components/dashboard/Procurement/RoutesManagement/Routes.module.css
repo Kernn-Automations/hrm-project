@@ -1,0 +1,574 @@
+/* HomeRoute css */
+
+.container {
+
+    /* height: 50px; */
+    /* height: 30%; */
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card {
+    /* background-color: #f2f2f2; */
+    background-color: #E5E5E5;
+    padding: 20px;
+    width: 350px;
+    /* height: 100%; */
+    min-height: 250px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.273);
+    text-align: left;
+    display: grid;
+    align-items: center;
+}
+
+.cardContainer svg {
+    /* justify-items: center; */
+    margin-left: 230px;
+    margin-top: -40px;
+    width: 35px;
+    /* width: 200px; */
+    /* align-items: center; */
+}
+
+.card button {
+    border: none;
+    background-color: #E5E5E5;
+}
+
+.contentHeader h3 {
+    color: #397595;
+    text-align: left;
+}
+
+.firstBox {
+    display: flex;
+    justify-content: end;
+}
+
+.secondBox {
+    display: flex;
+    justify-content: end;
+    margin-bottom: -60px;
+}
+
+.secondBox svg {
+    width: 50px;
+}
+
+
+/* Add Route css */
+
+.addContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* Adds space between boxes */
+    padding: 20px;
+}
+
+.boxContainer {
+    width: 600px;
+    height: 500px;
+    max-height: 500px;
+    background-color: #E5E5E5;
+    color: white;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    font-size: 18px;
+    /* border-radius: 8px; */
+}
+
+.searchContainer input {
+    border-radius: 20px;
+    /* padding: 8px; */
+    padding: 8px 0px 8px 10px;
+    color: #BABABA;
+    font-weight: 600;
+    /* border-color: #787878; */
+    margin-top: 15px;
+    margin-left: 150px;
+    font-size: 14px;
+    border: 1px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.594);
+
+}
+
+.contentBmcs div {
+    width: 400px;
+}
+
+.contentBmcs button {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 15px;
+    align-self: center;
+}
+
+
+
+.content h4,
+.contentBmcs h4 {
+    text-align: center;
+    color: #7B7B7B;
+}
+
+.content p,
+.contentBmcs p {
+    text-align: center;
+    color: #546A7F;
+}
+
+.contentBmcs {
+    padding: 5px;
+    border-radius: 20px;
+    width: 500px;
+    background-color: #FFFFFF;
+    margin: 20px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.594);
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    /* color: #FFFFFF; */
+
+    border-radius: 20px;
+    width: 500px;
+    background-color: #FFFFFF;
+    margin: 20px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.594);
+    /* margin-left: 20px; */
+}
+
+.addButton {
+    background-color: #22A367;
+    color: #FFFFFF;
+    border: none;
+    width: 506px;
+    height: 50px;
+    font-weight: 600;
+    margin-left: 20px;
+    /* margin-right: 40px; */
+}
+
+
+/* Add Route Form css */
+
+.addContainer {
+    display: flex;
+    padding: 40px;
+}
+
+.addColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formRow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.formRow label {
+    width: 120px;
+    font-weight: 600;
+    color: #606060;
+    font-size: 16px;
+}
+
+.formRow input {
+    padding: 8px;
+    border: 1px solid #8F8F8F;
+    border-radius: 6px;
+    background-color: #E4E4E4;
+    width: 200px;
+}
+
+.stopBox {
+
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); */
+}
+
+.stopBox h4 {
+    font-weight: 600;
+    color: #8F8F8F;
+}
+
+.stopHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.leftSection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stopHeader h4 {
+    /* margin: 0; */
+    font-size: 18px;
+    color: #333;
+    margin-right: 70px;
+}
+
+
+.stopHeader svg {
+    flex-shrink: 0;
+    /* prevents SVGs from shrinking */
+}
+
+.addStop {
+    padding: 10px;
+    background-color: #397595;
+    color: white;
+    border: none;
+    /* border-radius: 6px; */
+    margin-top: -20px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 150px;
+    margin-left: 140px;
+    /* height: 55px; */
+}
+
+.createdButton {
+    background-color: #22A367;
+    padding: 6px;
+    width: 80px;
+    margin-right: 20px;
+    border: none;
+    margin-top: 30px;
+    margin-left: 30px;
+    color: #FFFFFF;
+}
+
+.cancelButton {
+    background-color: #C95151;
+    padding: 6px;
+    width: 80px;
+    border: none;
+    color: #FFFFFF;
+}
+
+/* Delete Route css */
+
+.deleteButton {
+    background-color: #C95151;
+    padding: 6px;
+    width: 80px;
+    border: none;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+
+.content .deleteButton {
+    margin-left: 400px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    /* margin-top: 30px; */
+}
+
+
+
+/* Delete Side popup form css */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 999;
+}
+
+.popup {
+    width: 450px;
+    height: 100%;
+    background: #fff;
+    padding: 20px;
+    box-shadow: -3px 0 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #7DA7BE;
+    color: #FFFFFF;
+}
+
+.formGroup {
+    margin-bottom: 15px;
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    gap: 10px;
+}
+
+.formGroup label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #8C8C8C;
+    min-width: 100px;
+}
+
+.formGroup input {
+
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #E4E4E4;
+}
+
+.warning {
+
+    margin: 80px 0;
+    background: #D9D9D9;
+    color: #454545;
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 14px;
+    justify-content: center;
+    padding-left: 80px;
+}
+
+.buttonGroup {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.deleteBtn {
+    background-color: #C95151;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    /* border-radius: 4px; */
+    cursor: pointer;
+}
+
+.cancelBtn {
+    background-color: #22A367;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    /* border-radius: 4px; */
+    cursor: pointer;
+}
+
+
+/* Ongoing Route css */
+
+
+.content .viewButton {
+    margin-left: 400px;
+    margin-bottom: 30px;
+}
+
+.viewButton {
+    background-color: #397595;
+    color: #FFFFFF;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 80px;
+    border: none;
+    border-radius: 15px;
+    /* width: 20px; */
+}
+
+
+/* Transport Report css  */
+
+.transportContainer {
+    padding: 20px;
+    background-color: #E4E4E4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-self: end;
+    margin-bottom: 20px;
+    /* width: 100%; */
+    /* margin-left: 200px; */
+    /* direction: rtl; */
+}
+
+
+.transportForm {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    /* margin-bottom: 20px; */
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.transportForm label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    color: #686868;
+}
+
+.transportForm input {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #C9C7C7;
+}
+
+.transportTable {
+    /* margin-top: 40px;
+    box-sizing: border-box; */
+    display: flex;
+    justify-content: center;
+}
+
+/* .transportHeader th {
+    background-color: #80BBC5;
+    color: white;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.transportBody td {
+    background-color: #DDDDDD;
+    padding-left: 15px;
+} */
+
+.submitBtn {
+    background-color: #22A367;
+    color: white;
+    padding: 6px 20px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+}
+
+.cancelBtnTransport {
+    background-color: #C95151;
+    color: white;
+    padding: 6px 20px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+}
+
+.exportButtons {
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    /* Optional: space between buttons */
+    margin-top: 20px;
+    /* Optional: top margin */
+    margin-bottom: 15px;
+    /* Bottom margin */
+}
+
+
+.excelBtn,
+.printBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.excelBtn {
+    background-color: #006100;
+    color: white;
+}
+
+.printBtn {
+    background-color: #0E6499;
+    color: white;
+}
+
+/* Vehicel in out css */
+
+.mainWrapper {
+    display: flex;
+    gap: 20px;
+    /* optional spacing between the two sections */
+    align-items: flex-start;
+    /* optional - align top */
+}
+
+.firstContainer {
+    /* width: 200px; */
+    width: 20%;
+}
+
+.vehicleCard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.vehicleCard button{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+.vehicleCard span {
+    font-weight: 600;
+    color: #686868;
+}
+
+.vehicleCard svg {
+    padding-left: 10px;
+}
+
+/* Delete Tanker  Route css */
+
+.deleteBtn {
+    background-color: #C95151;
+    color: white;
+}
+
+.viewBtn {
+    background-color: #22A367;
+}

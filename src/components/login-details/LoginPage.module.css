@@ -1,0 +1,208 @@
+
+
+.container {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    background-color: #F0F2F5;
+}
+
+.login {
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.loginbox {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    min-height: 260px;
+    max-height: auto;
+    align-self: center;
+    text-align: center;
+    justify-content: center;
+    background-color: aliceblue;
+}
+
+
+.title {
+    color: var(--primmary-color);
+    font-size: 24px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.button {
+    margin-top: 20px;
+    width: 60%;
+    padding: 6px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primmary-color);
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: white;
+}
+
+.label{
+    text-align: left;
+    display: block;
+    width: 85%;
+    margin-left: 15%;
+    font-size: 13px;
+    color: #666;
+}
+
+.input {
+    outline: none;
+    border: none;
+    font-weight: 600;
+    border-bottom: 2px solid #555;
+    background-color: transparent;
+    width: 70%;
+    letter-spacing: 2px;
+    font-size: 15px;
+    padding-left: 3px
+}
+
+.logo {
+    width: 350px;
+    align-self: center;
+    height: fit-content;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+}
+
+.text {
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.footer {
+    /* 
+    text-align: center;
+    font-size: 13px;
+    color: #333; */
+    margin-top: 40px;
+    text-align: center;
+    font-size: 13px;
+    color: #333;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+
+}
+
+.footContent {
+    width: 60%;
+
+}
+
+.footerLinks {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.footerLinks a {
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footerLinks span {
+    color: #a51e1e;
+}
+
+.footerNote {
+    font-size: 12px;
+    color: #666;
+}
+
+.footer hr {
+    color: var(--primmary-color);
+}
+
+.brand {
+    font-weight: bold;
+    color: #a51e1e;
+}
+
+.resendText {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #333;
+}
+
+.resendBtn {
+    background: none;
+    border: none;
+    color: var(--primmary-color);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+}
+
+.inputOtp {
+    /* outline: none;
+    border: none;
+    border-bottom: 1px solid #555;
+    background-color: transparent;
+    width: 70%;
+    margin-top: 20px;
+    font-size: 15px; */
+    width: 100%;
+    height: auto;
+    margin: 10px 5px;
+    border: none;
+    border-bottom: 2px solid #333;
+    /* text-align: center; */
+    background-color: transparent;
+    padding: 3px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #333;
+}
+
+.otps {
+    /* display: flex; */
+    /* justify-content: center; */
+    font-size: 15px;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.otps input {
+    width: 100%;
+    height: auto;
+    margin: 10px 7px;
+    border: none;
+    border-bottom: 2px solid #333;
+    text-align: center;
+    background-color: transparent;
+    padding: 3px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #333;
+}
+.otps div{
+    margin-left: calc(15% - 10px);
+}
+
+.otps input:focus {
+    outline: none;
+    border-bottom: 2px solid #333;
+}

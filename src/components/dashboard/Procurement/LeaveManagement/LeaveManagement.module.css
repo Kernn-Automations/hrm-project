@@ -1,0 +1,47 @@
+.leaveNavWrapper {
+  background: white;
+  padding: 10px 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.leaveNav {
+  display: flex;
+  gap: 60px; /* Reduce if still too wide, try 38px or 48px if you want tighter */
+  width: 100%;
+  justify-content: center;
+}
+
+.navLink {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 28px;    /* Make a bit bigger for more Figma-like look */
+  color: #0070AC;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 8px;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+}
+
+.navLink:hover {
+  color: #0070AC;
+}
+
+/* The underline effect for active tab */
+.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 170px;    /* Match the text width - adjust for your text, try 110-150px for shorter label */
+  height: 13px;    /* Slightly taller as per Figma */
+  background-color: #0070AC;
+  border-radius: 8px;
+  z-index: 1;
+}
