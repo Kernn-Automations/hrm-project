@@ -1,31 +1,45 @@
-import React, { lazy, Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
-import ShiftHeader from './ShiftHeader'
-import SquareTableSkeleton from '@/SkeletonLoaders/SquareTableSkeleton'
+import React, { lazy, Suspense } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import ShiftHeader from "./ShiftHeader";
+import SquareTableSkeleton from "@/SkeletonLoaders/SquareTableSkeleton";
+import ShiftsShedule from "./ShiftsShedule";
 
-const ShiftHomePage = lazy(() => import('./ShiftHomePage'))
-const ManageShifts = lazy(() => import('./ManageShifts'))
+const ShiftHomePage = lazy(() => import("./ShiftHomePage"));
+const ManageShifts = lazy(() => import("./ManageShifts"));
 
 function Routing() {
-    return (
-        <>
-            <div className='main-container'>
-                <ShiftHeader />
-                <Routes>
-                    <Route index element={
-                        <Suspense fallback={<SquareTableSkeleton />}>
-                            <ShiftHomePage />
-                        </Suspense>
-                    } />
-                    <Route path='/manage' element={
-                        <Suspense fallback={<SquareTableSkeleton />}>
-                            <ManageShifts />
-                        </Suspense>
-                    } />
-                </Routes>
-            </div>
-        </>
-    )
+  const navigate = useNavigate();
+
+  return (
+    <>
+      <Routes>
+        <Route
+          index
+          element={
+            <Suspense fallback={<SquareTableSkeleton />}>
+              <ShiftHomePage navigate={navigate} />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/shedule"
+          element={
+            <Suspense fallback={<SquareTableSkeleton />}>
+              <ShiftsShedule navigate={navigate} />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/manage"
+          element={
+            <Suspense fallback={<SquareTableSkeleton />}>
+              <ManageShifts navigate={navigate} />
+            </Suspense>
+          }
+        />
+      </Routes>
+    </>
+  );
 }
 
-export default Routing
+export default Routing;

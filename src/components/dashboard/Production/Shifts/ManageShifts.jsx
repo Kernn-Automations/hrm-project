@@ -1,20 +1,41 @@
-import React from 'react'
-import ViewPopupForm from '../../Procurement/ApplicationManagement/ViewPopupForm'
-import SidePopupForm from './SidePopupForm'
+import React from "react";
+import ViewPopupForm from "../../Procurement/ApplicationManagement/ViewPopupForm";
+import SidePopupForm from "./SidePopupForm";
 
-function ManageShifts() {
-
-
+function ManageShifts({ navigate }) {
   const employees = [
-    { name: 'Karthik', id: 'KEMP0004', mobile: '1234567899', role: 'Intern', shift: '1' },
-    { name: 'Shanmukh', id: 'KEMP0005', mobile: '1234567890', role: 'Staff', shift: '2' },
-    { name: 'Hari Krishna', id: 'KEMP0006', mobile: '1234567890', role: 'Superviosor', shift: '1' }
-  ]
+    {
+      name: "Karthik",
+      id: "KEMP0004",
+      mobile: "1234567899",
+      role: "Intern",
+      shift: "1",
+    },
+    {
+      name: "Shanmukh",
+      id: "KEMP0005",
+      mobile: "1234567890",
+      role: "Staff",
+      shift: "2",
+    },
+    {
+      name: "Hari Krishna",
+      id: "KEMP0006",
+      mobile: "1234567890",
+      role: "Superviosor",
+      shift: "1",
+    },
+  ];
 
   return (
     <>
-      <div className='d-flex justify-content-center p-3'>
-        <table className='square-table'>
+      <p className="path">
+        <span onClick={() => navigate("/shifts")}>Shifts</span>{" "}
+        <i className="bi bi-chevron-right"></i> Manage-Shifts
+      </p>
+
+      <div className="d-flex justify-content-center p-3">
+        <table className="square-table">
           <thead>
             <tr>
               <th>S.No</th>
@@ -35,7 +56,6 @@ function ManageShifts() {
               <td>Intern</td>
               <td>1</td>
               <td>
-
                 <SidePopupForm btnName={"view"} />
               </td>
             </tr>
@@ -43,7 +63,7 @@ function ManageShifts() {
         </table>
       </div>
     </>
-  )
+  );
 }
 
-export default ManageShifts
+export default ManageShifts;

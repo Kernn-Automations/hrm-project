@@ -10,8 +10,7 @@ function ShiftHeader() {
     return (
         <>
             <CentralNavBar>
-                <button className={`${location.pathname === '/shifts' ? "active-central-navbar" : ""}`} onClick={() => navigate("/shifts")}>Shift Shedule</button>
-                <button className={`${location.pathname.includes('/manage') ? "active-central-navbar" : ""}`} onClick={() => navigate("/shifts/manage")}>Manage Shifts</button>
+               
 
             </CentralNavBar>
         </>

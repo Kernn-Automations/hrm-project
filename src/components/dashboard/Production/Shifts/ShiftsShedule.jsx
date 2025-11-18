@@ -1,0 +1,45 @@
+import React from "react";
+
+function ShiftsShedule({ navigate }) {
+  return (
+    <>
+      <p className="path">
+        <span onClick={() => navigate("/shifts")}>Shifts</span>{" "}
+        <i className="bi bi-chevron-right"></i> Shift-Shedule
+      </p>
+
+      <div className="d-flex justify-content-center p-3">
+        <table className="square-table">
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Employee Name</th>
+              <th>MON</th>
+              <th>TUE</th>
+              <th>WED</th>
+              <th>THU</th>
+              <th>FRI</th>
+              <th>SAT</th>
+              <th>SUN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Karthik</td>
+              <td>Working</td>
+              <td>Working</td>
+              <td>Working</td>
+              <td>Working</td>
+              <td>Working</td>
+              <td>Week Off</td>
+              <td>Week Off</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
+}
+
+export default ShiftsShedule;

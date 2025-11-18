@@ -1,38 +1,29 @@
-import React from 'react'
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function ShiftHomePage() {
+  const navigate = useNavigate();
+
   return (
-    <div className="d-flex justify-content-center p-3">
-      <table className='square-table'>
-        <thead>
-          <tr>
-            <th>S.No</th>
-            <th>Employee Name</th>
-            <th>MON</th>
-            <th>TUE</th>
-            <th>WED</th>
-            <th>THU</th>
-            <th>FRI</th>
-            <th>SAT</th>
-            <th>SUN</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Karthik</td>
-            <td>Working</td>
-            <td>Working</td>
-            <td>Working</td>
-            <td>Working</td>
-            <td>Working</td>
-            <td>Week Off</td>
-            <td>Week Off</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  )
+    <>
+      <div className="row m-0 p-0">
+        <div className="col">
+          <button
+            className={`homebtn`}
+            onClick={() => navigate("/shifts/shedule")}
+          >
+            Shift Shedule
+          </button>
+          <button
+            className={`homebtn`}
+            onClick={() => navigate("/shifts/manage")}
+          >
+            Manage Shifts
+          </button>
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default ShiftHomePage
+export default ShiftHomePage;
