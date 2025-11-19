@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import ApplicationHeader from "./ApplicationHeader";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import ApplicationApprovals from "./ApplicationApprovals";
 import ApplicationStatus from "./ApplicationStatus";
 import SquareTableSkeleton from "@/SkeletonLoaders/SquareTableSkeleton";
@@ -11,24 +11,28 @@ const Status = lazy(() => import("./ApplicationStatus"));
 const ApplicationHome = lazy(() => import("./ApplicationHome"));
 
 function ApplicationRouting() {
+
+  const navigate = useNavigate();
   return (
     <>
-      <div className="main-container">
-        <ApplicationHeader />
+      
         <Routes>
           <Route
             index
             element={
               <Suspense fallback={<BoxSkeleton />}>
-                <ApplicationHome />
+                <ApplicationHeader />
+               
               </Suspense>
             }
           />
+
+          <Route path='/home' element = {<ApplicationHome  /> }/>
           <Route
             path="/approvals"
             element={
               <Suspense fallback={<SquareTableSkeleton />}>
-                <Approvals />
+                <Approvals navigate={navigate}/>
               </Suspense>
             }
           />
@@ -36,12 +40,12 @@ function ApplicationRouting() {
             path="/status"
             element={
               <Suspense fallback={<SquareTableSkeleton />}>
-                <Status />
+                <Status navigate={navigate}/>
               </Suspense>
             }
           />
         </Routes>
-      </div>
+      
     </>
   );
 }

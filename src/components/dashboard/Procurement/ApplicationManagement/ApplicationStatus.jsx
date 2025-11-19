@@ -1,9 +1,15 @@
 import React from 'react'
 import styles from './Application.module.css'
 
-function ApplicationStatus() {
+function ApplicationStatus({navigate}) {
   return (
     <>
+
+      <p className="path">
+        <span onClick={() => navigate("/applications")}>Applications</span>{" "}
+        <i className="bi bi-chevron-right"></i> Status
+      </p>
+
       <div className={styles.appContainer}>
         <table className='square-table'>
           <thead>

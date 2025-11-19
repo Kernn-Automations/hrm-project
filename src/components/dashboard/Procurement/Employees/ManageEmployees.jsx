@@ -25,7 +25,7 @@ const initialEmployees = [
   },
 ];
 
-const ManageEmployees = () => {
+const ManageEmployees = ({navigate}) => {
   const [employees, setEmployees] = useState(initialEmployees);
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [deleteCandidate, setDeleteCandidate] = useState(null);
@@ -65,83 +65,90 @@ const ManageEmployees = () => {
   }
 
   return (
-    <div className={styles.appContainer}>
-      <table className="square-table">
-        <thead>
-          <tr>
-            <th>S.No</th>
-            <th>Emp ID</th>
-            <th>Employee Name</th>
-            <th>Mobile Number</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Enable/Disable</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {employees.map((emp, index) => (
-            <tr key={emp.id}>
-              <td>{index + 1}</td>
-              <td>{emp.empId}</td>
-              <td>{emp.name}</td>
-              <td>{emp.mobile}</td>
-              <td>{emp.email}</td>
-              <td>{emp.roles.join(", ")}</td>
-              <td>
-                <label className={styles.switch}>
-                  <input
-                    type="checkbox"
-                    checked={emp.enabled}
-                    onChange={() => handleToggle(emp.id)}
-                  />
-                  <span className={styles.slider}></span>
-                </label>
-              </td>
-              <td>
-                <button
-                  className={styles.viewBtn}
-                  onClick={() => handleView(emp)}
-                >
-                  View
-                </button>
-                <CentralPopupBox
-                  ref={deletePopupRef}
-                  btnName="Delete"
-                  btnClass={styles.deleteBtn}
-                >
-                  <div className={styles.popupContent}>
-                    
-                    <p>
-                      Are you sure you want to delete {" "}
-                      <strong>{deleteCandidate?.name}</strong>?
-                    </p>
-                    <div className={styles.popupActions}>
-                      <button onClick={confirmDelete} className={styles.confirmBtn}>
-                        Yes, Delete
-                      </button>
-                      <button
-                        onClick={() => deletePopupRef.current?.closePopup()}
-                        className={styles.cancelBtn}
-                      >
-                        Cancel
-                      </button>
-                    </div>
-                  </div>
-                </CentralPopupBox>
-                <button
-                  className={styles.hiddenDeleteSetup}
-                  onClick={() => handleDeleteClick(emp)}
-                  style={{ display: "none" }}
-                >
-                  SetupDelete
-                </button>
-              </td>
+    <>
+      <p className="path">
+        <span onClick={() => navigate("/employees")}>Employees</span>{" "}
+        <i className="bi bi-chevron-right"></i> Manage Employees
+      </p>
+
+      <div className={styles.appContainer}>
+        <table className="square-table">
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Emp ID</th>
+              <th>Employee Name</th>
+              <th>Mobile Number</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Enable/Disable</th>
+              <th>Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {employees.map((emp, index) => (
+              <tr key={emp.id}>
+                <td>{index + 1}</td>
+                <td>{emp.empId}</td>
+                <td>{emp.name}</td>
+                <td>{emp.mobile}</td>
+                <td>{emp.email}</td>
+                <td>{emp.roles.join(", ")}</td>
+                <td>
+                  <label className={styles.switch}>
+                    <input
+                      type="checkbox"
+                      checked={emp.enabled}
+                      onChange={() => handleToggle(emp.id)}
+                    />
+                    <span className={styles.slider}></span>
+                  </label>
+                </td>
+                <td>
+                  <button
+                    className={styles.viewBtn}
+                    onClick={() => handleView(emp)}
+                  >
+                    View
+                  </button>
+                  <CentralPopupBox
+                    ref={deletePopupRef}
+                    btnName="Delete"
+                    btnClass={styles.deleteBtn}
+                  >
+                    <div className={styles.popupContent}>
+
+                      <p>
+                        Are you sure you want to delete {" "}
+                        <strong>{deleteCandidate?.name}</strong>?
+                      </p>
+                      <div className={styles.popupActions}>
+                        <button onClick={confirmDelete} className={styles.confirmBtn}>
+                          Yes, Delete
+                        </button>
+                        <button
+                          onClick={() => deletePopupRef.current?.closePopup()}
+                          className={styles.cancelBtn}
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  </CentralPopupBox>
+                  <button
+                    className={styles.hiddenDeleteSetup}
+                    onClick={() => handleDeleteClick(emp)}
+                    style={{ display: "none" }}
+                  >
+                    SetupDelete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 };
 

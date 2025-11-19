@@ -1,6 +1,7 @@
 import React from 'react'
 import CentralNavBar from '@/utils/CentralNavBar'
 import { useLocation, useNavigate } from 'react-router-dom';
+import ApplicationHome from './ApplicationHome';
 
 function ApplicationHeader() {
 
@@ -9,15 +10,18 @@ function ApplicationHeader() {
 
   return (
     <>
-      <CentralNavBar>
-        <button className={`${location.pathname === '/applications' ? "active-central-navbar" : ""}`} onClick={() => navigate("/applications")}>Home</button>
-
-        <button className={`${location.pathname.includes('/approvals') ? "active-central-navbar" : ""}`} onClick={() => navigate("/applications/approvals")}>Approvals</button>
-        <button className={`${location.pathname.includes('/status') ? "active-central-navbar" : ""}`} onClick={() => navigate("/applications/status")}>Status</button>
-        {/* <button className={`${location.pathname.includes('/completed') ? "active-central-navbar" : ""}`} onClick={() => navigate("/tasks/completed")}>Completed</button>
+      <div className='row m-0 p-0'>
+        <div className='col'>
+          {/* <button className={`homebtn`} onClick={() => navigate("/applications/home")}>Home</button> */}
+          
+          <button className={`homebtn`} onClick={() => navigate("/applications/approvals")}>Approvals</button>
+          <button className={`homebtn`} onClick={() => navigate("/applications/status")}>Status</button>
+          <ApplicationHome/>
+          {/* <button className={`${location.pathname.includes('/completed') ? "active-central-navbar" : ""}`} onClick={() => navigate("/tasks/completed")}>Completed</button>
         <button className={`${location.pathname.includes('/status') ? "active-central-navbar" : ""}`} onClick={() => navigate("/tasks/status")}>Status</button>
          */}
-      </CentralNavBar>
+        </div>
+      </div>
     </>
   )
 }

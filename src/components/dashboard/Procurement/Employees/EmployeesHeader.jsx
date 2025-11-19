@@ -9,6 +9,7 @@ function EmployeesHeader() {
   return (
     <>
       <CentralNavBar>
+
         <button
           className={`${
             location.pathname === "/employees"
@@ -39,6 +40,7 @@ function EmployeesHeader() {
         >
           Manage Employees
         </button>
+        
       </CentralNavBar>
     </>
   );
