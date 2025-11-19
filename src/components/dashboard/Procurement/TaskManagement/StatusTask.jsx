@@ -3,10 +3,15 @@ import styles from './TaskManagement.module.css'
 import RequestForm from '../AttendanceManagement/RequestForm'
 import StatusForm from './StatusForm'
 
-function StatusTask() {
+function StatusTask({navigate}) {
   // 
   return (
     <>
+
+      <p className="path">
+        <span onClick={() => navigate("/tasks")}>Tasks</span>{" "}
+        <i className="bi bi-chevron-right"></i> Status
+      </p>
       <div className={styles.container}>
         <table className="square-table">
           <thead>
@@ -26,17 +31,17 @@ function StatusTask() {
               <td>Karthik</td>
               <td className={styles.completedBtn}>
                 {/* <button>Completed</button> */}
-                <StatusForm btnName={"Complete"}/>
+                <StatusForm btnName={"Complete"} />
               </td>
             </tr>
-             <tr>
+            <tr>
               <td>1</td>
               <td>Decrease KMs in Vadlamudi BMC Routes</td>
               <td>2024-11-26</td>
               <td>Karthik</td>
               <td className={styles.pendingBtn}>
                 {/* <button>Pending</button> */}
-                <StatusForm btnName={"Pending"}/>
+                <StatusForm btnName={"Pending"} />
               </td>
             </tr>
           </tbody>

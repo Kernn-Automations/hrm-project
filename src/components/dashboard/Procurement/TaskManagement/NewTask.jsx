@@ -2,13 +2,18 @@ import React from 'react'
 import styles from './TaskManagement.module.css'
 
 
-function NewTask() {
+function NewTask({navigate}) {
   return (
     // 
     <>
+
+      <p className="path">
+        <span onClick={() => navigate("/tasks")}>Tasks</span>{" "}
+        <i className="bi bi-chevron-right"></i> New Task
+      </p>
       <div className={styles.newTaskContainer}>
-        <form className={styles.newForm}> 
-          <div className={styles.newRow}> 
+        <form className={styles.newForm}>
+          <div className={styles.newRow}>
             <label>Date : </label>
             <input type="date" />
           </div>

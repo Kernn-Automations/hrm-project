@@ -3,11 +3,16 @@ import styles from './TaskManagement.module.css'
 import RequestForm from '../AttendanceManagement/RequestForm'
 import CompletedForm from './CompletedForm'
 
-function CompletedTask() {
+function CompletedTask({navigate}) {
   // 
   return (
     <>
-      <div className={styles.container}>
+
+      <p className="path">
+        <span onClick={() => navigate("/tasks")}>Tasks</span>{" "}
+        <i className="bi bi-chevron-right"></i> Completed
+      </p>
+      <div className="d-flex justify-content-center p-3">
         <table className="square-table">
           <thead>
             <tr>
@@ -26,7 +31,7 @@ function CompletedTask() {
               <td>Karthik</td>
               <td className={styles.completedBtn}>
                 {/* <button>Completed</button> */}
-                <CompletedForm btnName={"Completed"}/>
+                <CompletedForm btnName={"Completed"} />
               </td>
             </tr>
           </tbody>

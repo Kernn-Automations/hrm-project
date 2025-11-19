@@ -5,6 +5,7 @@ import React from "react";
 function LeaveManagementHomePage() {
 
     const navigate = useNavigate();
+    
     return (
         <>
             <div className="row m-0 p-0">

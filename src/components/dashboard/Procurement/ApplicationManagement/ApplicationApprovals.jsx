@@ -3,10 +3,15 @@ import styles from './Application.module.css'
 import ApprovedForm from '../AttendanceManagement/ApprovedForm'
 import ViewPopupForm from './ViewPopupForm'
 
-function ApplicationApprovals() {
+function ApplicationApprovals({navigate}) {
   return (
     <>
-      <div className={styles.appContainer}>
+
+      <p className="path">
+        <span onClick={() => navigate("/applications")}>Applications</span>{" "}
+        <i className="bi bi-chevron-right"></i> Approvals
+      </p>
+      <div className="d-flex justify-content-center p-3">
         <table className="square-table">
           <thead>
             <tr>
@@ -28,7 +33,7 @@ function ApplicationApprovals() {
               <td>
                 {/* <button className={styles.completedButton}>View</button> */}
                 {/* <ApprovedForm btnName={"view"}/> */}
-                <ViewPopupForm btnName={"view"}/>
+                <ViewPopupForm btnName={"view"} />
               </td>
             </tr>
           </tbody>

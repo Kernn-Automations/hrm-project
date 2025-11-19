@@ -2,11 +2,16 @@ import React from 'react'
 import styles from './TaskManagement.module.css'
 import PendingForm from './PendingForm'
 
-function PendingTask() {
+function PendingTask({navigate}) {
   // 
   return (
     <>
-      <div className={styles.container}>
+      <p className="path">
+        <span onClick={() => navigate("/tasks")}>Tasks</span>{" "}
+        <i className="bi bi-chevron-right"></i> Pending
+      </p>
+
+      <div className='d-flex justify-content-center p-3'>
         <table className="square-table">
           <thead >
             <tr>
@@ -23,11 +28,11 @@ function PendingTask() {
               <td>Decrease KMs in Vadlamudi BMC Routes</td>
               <td>2024-11-26</td>
               <td>Karthik</td>
-              <td  className={styles.pendingBtn}>
+              <td className={styles.pendingBtn}>
                 {/* <button>
                   Pending
                 </button> */}
-                <PendingForm btnName={"Pending"}/>
+                <PendingForm btnName={"Pending"} />
               </td>
             </tr>
           </tbody>
