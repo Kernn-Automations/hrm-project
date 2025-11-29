@@ -17,6 +17,26 @@
   font-weight: 600;
 }
 
+.aiIcon {
+  margin-right: 18px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.aiIconImg {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: 0.2s ease-in-out;
+}
+
+.aiIconImg:hover {
+  opacity: 1;
+  transform: scale(1.06);
+}
+
 .refreshBtn {
   background: transparent;
   font-size: 20px;
@@ -71,7 +91,6 @@
   font-weight: 600;
   margin: 0;
   color: white;
-
 }
 .icon svg {
   width: 25px;

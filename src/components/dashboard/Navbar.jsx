@@ -3,6 +3,7 @@ import styles from "./Navbar.module.css";
 import { useNavigate } from "react-router-dom";
 import Avatar from "@/utils/Avatar";
 import AvatarWithMenu from "@/utils/AvatarWithMenu";
+import aiIcon from "@/assets/ai.png";
 
 const Navbar = ({ setRole }) => {
   const navigate = useNavigate();
@@ -10,6 +11,10 @@ const Navbar = ({ setRole }) => {
   const onRefresh = () => {
     setRole(null);
     navigate("/admin");
+  };
+
+  const openAIChat = () => {
+    navigate("/chat");
   };
   return (
     <>
@@ -21,6 +26,12 @@ const Navbar = ({ setRole }) => {
               <i class="bi bi-arrow-repeat"></i>
             </button>
           </div>
+
+          {/* ---------- AI ICON ADDED HERE ---------- */}
+          <div className={styles.aiIcon} onClick={openAIChat}>
+            <img src={aiIcon} alt="AI" className={styles.aiIconImg} />
+          </div>
+          {/* ---------------------------------------- */}
 
           <div className={styles.searchContainer}>
             <input
@@ -54,7 +65,7 @@ const Navbar = ({ setRole }) => {
         </div> */}
 
         {/* <Avatar /> */}
-        <AvatarWithMenu/>
+        <AvatarWithMenu />
       </nav>
     </>
   );

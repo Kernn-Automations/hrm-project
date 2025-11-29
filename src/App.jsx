@@ -12,6 +12,7 @@ import DashboardPageSkeleton from "./SkeletonLoaders/DashboardPageSkeleton";
 import WelcomePageSkeleton from "./SkeletonLoaders/WelcomePageSkeleton";
 import AdminPageSkeleton from "./SkeletonLoaders/AdminPageSkeleton";
 
+const AIChat = lazy(() => import("./components/dashboard/AI/aichat"));
 const LoginPage = lazy(() => import("./components/login-details/LoginPage"));
 const Dashboard = lazy(() => import("./components/dashboard/Dashboard"));
 const WelcomePage = lazy(() =>
@@ -24,7 +25,6 @@ function App() {
 
   useEffect(() => navigate("/login"), []);
   // useEffect(() => navigate('/admin') , [])
- 
 
   const [role, setRole] = useState();
 
@@ -51,6 +51,14 @@ function App() {
         element={
           <Suspense fallback={<WelcomePageSkeleton />}>
             <WelcomePage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/chat"
+        element={
+          <Suspense fallback={<DashboardPageSkeleton />}>
+            <AIChat />
           </Suspense>
         }
       />
