@@ -30,10 +30,10 @@ function ApplicationApprovals({navigate}) {
               <td>EMP01</td>
               <td>22-11-2022</td>
               <td>Pay Slip</td>
-              <td className="table-view-btn">
+              <td >
                 {/* <button className={styles.completedButton}>View</button> */}
                 {/* <ApprovedForm btnName={"view"}/> */}
-                <ViewPopupForm btnName={"view"} />
+                <ViewPopupForm btnName={"view"} btnClass="table-view-btn"/>
               </td>
             </tr>
           </tbody>

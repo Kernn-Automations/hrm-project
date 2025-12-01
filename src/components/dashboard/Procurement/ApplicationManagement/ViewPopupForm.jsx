@@ -4,11 +4,11 @@ import styles from '../AttendanceManagement/AttendanceForm.module.css';
 import CentralPopupBox from '@/utils/CentralPopupBox';
 
 
-function ViewPopupForm({ btnName}) {
+function ViewPopupForm({ btnName , btnClass}) {
     return (
         <>
 
-            <CentralPopupBox btnStyling={styles.viewButtonRequest} btnName={btnName} title={"Application Details"} >
+            <CentralPopupBox btnClass={btnClass} btnName={btnName} title={"Application Details"} >
                 {<form className={styles.approvedForm}>
                     <label>Date : </label>
                     <input type="date" />
