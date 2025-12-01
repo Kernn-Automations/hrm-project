@@ -13,7 +13,7 @@ function PayrollRouting() {
           index
           element={
             <Suspense fallback={<BoxSkeleton />}>
-              <PayrollHome />
+              <PayrollHome navigate={navigate} />
             </Suspense>
           }
         />

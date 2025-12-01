@@ -29,9 +29,9 @@ function CompletedTask({navigate }) {
               <td>Decrease KMs in Vadlamudi BMC Routes</td>
               <td>2024-11-26</td>
               <td>Karthik</td>
-              <td className="table-approved-btn">
+              <td >
                 {/* <button>Completed</button> */}
-                <CompletedForm btnName={"Completed"} />
+                <CompletedForm btnName={"Completed"} btnClass={"table-approved-btn"} />
               </td>
             </tr>
           </tbody>
