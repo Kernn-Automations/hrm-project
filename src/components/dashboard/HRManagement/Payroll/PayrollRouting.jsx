@@ -3,6 +3,7 @@ import SquareTableSkeleton from "@/SkeletonLoaders/SquareTableSkeleton";
 import React, { Suspense } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import PayrollHome from "./PayrollHome";
+import BonusModule from "./BonusModule";
 
 function PayrollRouting() {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ function PayrollRouting() {
           path="/bonus-pay"
           element={
             <Suspense fallback={<SquareTableSkeleton />}>
-              <p>Bonus Pay</p>
+              <BonusModule />
             </Suspense>
           }
         />
