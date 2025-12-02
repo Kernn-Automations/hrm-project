@@ -265,16 +265,13 @@ const api = {
 
 function TabButton({ active, onClick, children }) {
   return (
-    <button
-      className={`${styles.tabBtn} ${active ? styles.tabActive : ""}`}
-      onClick={onClick}
-    >
+    <button className={`homebtn`} onClick={onClick}>
       {children}
     </button>
   );
 }
 
-export default function BonusModule() {
+export default function BonusModule({ navigate }) {
   const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState("cycles"); // cycles | structures | assignments | review | release | reports
   const [cycles, setCycles] = useState([]);
@@ -741,10 +738,55 @@ export default function BonusModule() {
     );
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.title}>Bonus / Variable Pay — Payroll Module</h2>
-      {showMsg()}
-      <div className={styles.headerRow}>
+    <>
+      <p className="path">
+        <span onClick={() => navigate("/payroll")}>Payroll</span>{" "}
+        <i className="bi bi-chevron-right"></i> Bonus Pay
+      </p>
+
+      <div className={styles.container}>
+        {showMsg()}
+        <div className={styles.headerRow}>
+          <div className={styles.tabs}>
+            <TabButton
+              active={tab === "cycles"}
+              onClick={() => setTab("cycles")}
+            >
+              Cycles
+            </TabButton>
+            <TabButton
+              active={tab === "structures"}
+              onClick={() => setTab("structures")}
+            >
+              Structures
+            </TabButton>
+            <TabButton
+              active={tab === "assignments"}
+              onClick={() => setTab("assignments")}
+            >
+              Assignments
+            </TabButton>
+            <TabButton
+              active={tab === "review"}
+              onClick={() => setTab("review")}
+            >
+              Review & Approval
+            </TabButton>
+            <TabButton
+              active={tab === "release"}
+              onClick={() => setTab("release")}
+            >
+              Release
+            </TabButton>
+            <TabButton
+              active={tab === "reports"}
+              onClick={() => setTab("reports")}
+            >
+              Reports
+            </TabButton>
+          </div>
+        </div>
+
         <div className={styles.cycleSelector}>
           <label>Selected Cycle</label>
           <select
@@ -760,117 +802,87 @@ export default function BonusModule() {
           </select>
         </div>
 
-        <div className={styles.tabs}>
-          <TabButton active={tab === "cycles"} onClick={() => setTab("cycles")}>
-            Cycles
-          </TabButton>
-          <TabButton
-            active={tab === "structures"}
-            onClick={() => setTab("structures")}
-          >
-            Structures
-          </TabButton>
-          <TabButton
-            active={tab === "assignments"}
-            onClick={() => setTab("assignments")}
-          >
-            Assignments
-          </TabButton>
-          <TabButton active={tab === "review"} onClick={() => setTab("review")}>
-            Review & Approval
-          </TabButton>
-          <TabButton
-            active={tab === "release"}
-            onClick={() => setTab("release")}
-          >
-            Release
-          </TabButton>
-          <TabButton
-            active={tab === "reports"}
-            onClick={() => setTab("reports")}
-          >
-            Reports
-          </TabButton>
+        <div className={styles.tabContent}>
+          {tab === "cycles" && (
+            <CyclesTab
+              cycles={cycles}
+              onCreate={handleCreateCycle}
+              onUpdate={async (id, patch) => {
+                await api.updateCycle(id, patch);
+                setCycles(await api.getCycles());
+                setMessage({ type: "success", text: "Cycle updated" });
+              }}
+            />
+          )}
+
+          {tab === "structures" && (
+            <StructuresTab
+              structures={structures}
+              onCreate={handleCreateStructure}
+              onUpdate={async (id, patch) => {
+                await api.updateStructure(id, patch);
+                setStructures(await api.getStructures());
+                setMessage({ type: "success", text: "Structure updated" });
+              }}
+            />
+          )}
+
+          {tab === "assignments" && (
+            <AssignmentsTab
+              employees={employees}
+              assignments={assignments}
+              structures={structures}
+              cycle={selectedCycle()}
+              onAssign={handleAssignToEmployee}
+              onUpdateAssignmentField={handleUpdateAssignmentField}
+              onExportCSV={exportAssignmentsCSV}
+            />
+          )}
+
+          {tab === "review" && (
+            <ReviewTab
+              assignments={assignments}
+              employees={employees}
+              onApprove={handleApproveSingle}
+              onReject={handleRejectSingle}
+              onBulkApprove={handleBulkApprove}
+            />
+          )}
+
+          {tab === "release" && (
+            <ReleaseTab
+              assignments={assignments}
+              cycle={selectedCycle()}
+              onPreRelease={() => {
+                const v = runPreReleaseValidation();
+                if (!v.ok)
+                  setMessage({
+                    type: "error",
+                    text:
+                      "Pre-release issues: " +
+                      v.issues.map((i) => i.message).join("; "),
+                  });
+                else
+                  setMessage({
+                    type: "success",
+                    text: "Pre-release checks OK",
+                  });
+                return v;
+              }}
+              onRelease={performRelease}
+            />
+          )}
+
+          {tab === "reports" && (
+            <ReportsTab
+              assignments={assignments}
+              employees={employees}
+              onExport={exportAssignmentsCSV}
+            />
+          )}
         </div>
       </div>
-
-      <div className={styles.tabContent}>
-        {tab === "cycles" && (
-          <CyclesTab
-            cycles={cycles}
-            onCreate={handleCreateCycle}
-            onUpdate={async (id, patch) => {
-              await api.updateCycle(id, patch);
-              setCycles(await api.getCycles());
-              setMessage({ type: "success", text: "Cycle updated" });
-            }}
-          />
-        )}
-
-        {tab === "structures" && (
-          <StructuresTab
-            structures={structures}
-            onCreate={handleCreateStructure}
-            onUpdate={async (id, patch) => {
-              await api.updateStructure(id, patch);
-              setStructures(await api.getStructures());
-              setMessage({ type: "success", text: "Structure updated" });
-            }}
-          />
-        )}
-
-        {tab === "assignments" && (
-          <AssignmentsTab
-            employees={employees}
-            assignments={assignments}
-            structures={structures}
-            cycle={selectedCycle()}
-            onAssign={handleAssignToEmployee}
-            onUpdateAssignmentField={handleUpdateAssignmentField}
-            onExportCSV={exportAssignmentsCSV}
-          />
-        )}
-
-        {tab === "review" && (
-          <ReviewTab
-            assignments={assignments}
-            employees={employees}
-            onApprove={handleApproveSingle}
-            onReject={handleRejectSingle}
-            onBulkApprove={handleBulkApprove}
-          />
-        )}
-
-        {tab === "release" && (
-          <ReleaseTab
-            assignments={assignments}
-            cycle={selectedCycle()}
-            onPreRelease={() => {
-              const v = runPreReleaseValidation();
-              if (!v.ok)
-                setMessage({
-                  type: "error",
-                  text:
-                    "Pre-release issues: " +
-                    v.issues.map((i) => i.message).join("; "),
-                });
-              else
-                setMessage({ type: "success", text: "Pre-release checks OK" });
-              return v;
-            }}
-            onRelease={performRelease}
-          />
-        )}
-
-        {tab === "reports" && (
-          <ReportsTab
-            assignments={assignments}
-            employees={employees}
-            onExport={exportAssignmentsCSV}
-          />
-        )}
-      </div>
-    </div>
+    </>
   );
 }
 
@@ -894,10 +906,11 @@ function CyclesTab({ cycles, onCreate, onUpdate }) {
 
   return (
     <div>
-      <h3>Bonus Cycle Management (Cycle List)</h3>
+      <h3 className={styles.headerh3}>Bonus Cycle Management (Cycle List)</h3>
       <div className={styles.cyclesGrid}>
         <div className={styles.cycleList}>
-          <table className={styles.table}>
+          <h4 className={styles.cyclesh4}>Cycles List</h4>
+          <table className={"square-table w-100"}>
             <thead>
               <tr>
                 <th>Cycle Name</th>
@@ -922,7 +935,7 @@ function CyclesTab({ cycles, onCreate, onUpdate }) {
         </div>
 
         <div className={styles.cycleForm}>
-          <h4>Create New Cycle</h4>
+          <h4 className={styles.cyclesh4}>Create New Cycle</h4>
           <div className={styles.formRow}>
             <label>Cycle Name</label>
             <input
@@ -986,10 +999,7 @@ function CyclesTab({ cycles, onCreate, onUpdate }) {
             />
           </div>
           <div className={styles.formRow}>
-            <button
-              onClick={() => onCreate(form)}
-              className={styles.primaryBtn}
-            >
+            <button onClick={() => onCreate(form)} className={`submitbtn`}>
               Create Cycle
             </button>
           </div>
@@ -1015,10 +1025,11 @@ function StructuresTab({ structures, onCreate, onUpdate }) {
 
   return (
     <div>
-      <h3>Bonus Structure Setup</h3>
-      <div className={styles.sectionGrid}>
-        <div>
-          <table className={styles.table}>
+      <h3 className={styles.headerh3}>Bonus Structure Setup</h3>
+      <div className={styles.cyclesGrid}>
+        <div className={styles.cycleList}>
+          <h4 className={styles.cyclesh4}>Structures List</h4>
+          <table className={"square-table w-100"}>
             <thead>
               <tr>
                 <th>Name</th>
@@ -1056,8 +1067,8 @@ function StructuresTab({ structures, onCreate, onUpdate }) {
           </table>
         </div>
 
-        <div className={styles.panelCard}>
-          <h4>Create Structure</h4>
+        <div className={styles.cycleList}>
+          <h4 className={styles.cyclesh4}>Create Structure</h4>
           <div className={styles.formRow}>
             <label>Structure Name</label>
             <input
@@ -1136,7 +1147,7 @@ function StructuresTab({ structures, onCreate, onUpdate }) {
 
           <div className={styles.formRow}>
             <button
-              className={styles.primaryBtn}
+              className={"submitbtn"}
               onClick={() => {
                 onCreate({
                   ...form,
@@ -1185,137 +1196,147 @@ function AssignmentsTab({
 
   return (
     <div>
-      <h3>Assign Bonus to Employees</h3>
+      <h3 className={styles.headerh3}>Assign Bonus to Employees</h3>
 
-      <div className={styles.assignControls}>
-        <label>Employee</label>
-        <select
-          value={selectedEmployee}
-          onChange={(e) => setSelectedEmployee(e.target.value)}
-        >
-          <option value="">-- select --</option>
-          {employees.map((e) => (
-            <option key={e.id} value={e.id}>
-              {e.name} ({e.code})
-            </option>
-          ))}
-        </select>
+      <div className={styles.cyclesGrid}>
+        <div className={styles.cycleList}>
+          <h4 className={styles.cyclesh4}>Assign Bonus</h4>
+          <div className={styles.assignControls}>
+            <label>Employee</label>
+            <select
+              value={selectedEmployee}
+              onChange={(e) => setSelectedEmployee(e.target.value)}
+            >
+              <option value="">-- select --</option>
+              {employees.map((e) => (
+                <option key={e.id} value={e.id}>
+                  {e.name} ({e.code})
+                </option>
+              ))}
+            </select>
 
-        <label>Structure</label>
-        <select
-          value={selectedStructure}
-          onChange={(e) => setSelectedStructure(e.target.value)}
-        >
-          {structures.map((s) => (
-            <option key={s.id} value={s.id}>
-              {s.name}
-            </option>
-          ))}
-        </select>
+            <label>Structure</label>
+            <select
+              value={selectedStructure}
+              onChange={(e) => setSelectedStructure(e.target.value)}
+            >
+              {structures.map((s) => (
+                <option key={s.id} value={s.id}>
+                  {s.name}
+                </option>
+              ))}
+            </select>
 
-        <label>Target (if applicable)</label>
-        <input
-          type="number"
-          value={target}
-          onChange={(e) => setTarget(e.target.value)}
-        />
+            <label>Target (if applicable)</label>
+            <input
+              type="number"
+              value={target}
+              onChange={(e) => setTarget(e.target.value)}
+            />
 
-        <button
-          className={styles.primaryBtn}
-          onClick={() => {
-            onAssign({
-              employeeId: selectedEmployee,
-              structureId: selectedStructure,
-              target: target || null,
-            });
-            setSelectedEmployee("");
-            setTarget("");
-          }}
-        >
-          Assign
-        </button>
-        <button onClick={onExportCSV}>Export CSV</button>
-      </div>
+            <button
+              className={"submitbtn"}
+              onClick={() => {
+                onAssign({
+                  employeeId: selectedEmployee,
+                  structureId: selectedStructure,
+                  target: target || null,
+                });
+                setSelectedEmployee("");
+                setTarget("");
+              }}
+            >
+              Assign
+            </button>
+            <button className={"viewbtn"} onClick={onExportCSV}>
+              Export CSV
+            </button>
+          </div>
+        </div>
 
-      <div className={styles.tableWrap}>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>Employee</th>
-              <th>Structure</th>
-              <th>Target</th>
-              <th>Achievement</th>
-              <th>Auto Calc</th>
-              <th>Override</th>
-              <th>Final</th>
-              <th>Approval</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {assignments.map((a) => {
-              const emp = employees.find((e) => e.id === a.employeeId);
-              const struct = structures.find((s) => s.id === a.structureId);
-              return (
-                <tr key={a.id}>
-                  <td>
-                    {emp?.name}{" "}
-                    <div className={styles.smallText}>{emp?.code}</div>
-                  </td>
-                  <td>{struct?.name}</td>
-                  <td>
-                    <input
-                      type="number"
-                      value={a.target ?? ""}
-                      onChange={(e) =>
-                        onUpdateAssignmentField(a.id, {
-                          target: e.target.value,
-                        })
-                      }
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="number"
-                      value={a.achievement ?? ""}
-                      onChange={(e) =>
-                        onUpdateAssignmentField(a.id, {
-                          achievement: e.target.value,
-                        })
-                      }
-                    />
-                  </td>
-                  <td>{toCurrency(a.autoCalcAmount)}</td>
-                  <td>
-                    <input
-                      type="number"
-                      value={a.overrideAmount ?? ""}
-                      onChange={(e) =>
-                        onUpdateAssignmentField(a.id, {
-                          overrideAmount: e.target.value,
-                          audit: (a.audit || []).concat([
-                            {
-                              when: new Date().toISOString(),
-                              by: "user",
-                              note: "override changed",
-                            },
-                          ]),
-                        })
-                      }
-                    />
-                  </td>
-                  <td>{toCurrency(a.finalAmount)}</td>
-                  <td>{a.approvalStatus}</td>
-                  <td>
-                    <button onClick={() => alert("Open history / edit modal")}>
-                      View
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        <div className={styles.cycleList}>
+          <h4 className={styles.cyclesh4}>Assigned List</h4>
+          <table className={"square-table w-100"}>
+            <thead>
+              <tr>
+                <th>Employee</th>
+                <th>Structure</th>
+                <th>Target</th>
+                <th>Achievement</th>
+                <th>Auto Calc</th>
+                <th>Override</th>
+                <th>Final</th>
+                <th>Approval</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {assignments.map((a) => {
+                const emp = employees.find((e) => e.id === a.employeeId);
+                const struct = structures.find((s) => s.id === a.structureId);
+                return (
+                  <tr key={a.id}>
+                    <td>
+                      {emp?.name}{" "}
+                      <div className={styles.smallText}>{emp?.code}</div>
+                    </td>
+                    <td>{struct?.name}</td>
+                    <td>
+                      <input
+                        type="number"
+                        value={a.target ?? ""}
+                        onChange={(e) =>
+                          onUpdateAssignmentField(a.id, {
+                            target: e.target.value,
+                          })
+                        }
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        value={a.achievement ?? ""}
+                        onChange={(e) =>
+                          onUpdateAssignmentField(a.id, {
+                            achievement: e.target.value,
+                          })
+                        }
+                      />
+                    </td>
+                    <td>{toCurrency(a.autoCalcAmount)}</td>
+                    <td>
+                      <input
+                        type="number"
+                        value={a.overrideAmount ?? ""}
+                        onChange={(e) =>
+                          onUpdateAssignmentField(a.id, {
+                            overrideAmount: e.target.value,
+                            audit: (a.audit || []).concat([
+                              {
+                                when: new Date().toISOString(),
+                                by: "user",
+                                note: "override changed",
+                              },
+                            ]),
+                          })
+                        }
+                      />
+                    </td>
+                    <td>{toCurrency(a.finalAmount)}</td>
+                    <td>{a.approvalStatus}</td>
+                    <td>
+                      <button
+                        onClick={() => alert("Open history / edit modal")}
+                      >
+                        View
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
@@ -1341,73 +1362,78 @@ function ReviewTab({
 
   return (
     <div>
-      <h3>Review & Approval Workflow</h3>
-      <div className={styles.actionRow}>
-        <button
-          className={styles.primaryBtn}
-          onClick={() => onBulkApprove(selectedIds)}
-        >
-          Bulk Approve
-        </button>
-        <button
-          onClick={() => {
-            selectedIds.forEach((id) =>
-              onReject(id, "Bulk rejected by manager")
-            );
-            setSelectedIds([]);
-          }}
-        >
-          Bulk Reject
-        </button>
+      <h3 className={styles.headerh3}>Review & Approval Workflow</h3>
+      <div className="d-flex justify-content-center">
+        <div className={`w-75 ${styles.actionRow}`}>
+          <button
+            className={"submitbtn"}
+            onClick={() => onBulkApprove(selectedIds)}
+          >
+            Bulk Approve
+          </button>
+          <button
+            className="cancelbtn"
+            onClick={() => {
+              selectedIds.forEach((id) =>
+                onReject(id, "Bulk rejected by manager")
+              );
+              setSelectedIds([]);
+            }}
+          >
+            Bulk Reject
+          </button>
+        </div>
       </div>
 
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Employee</th>
-            <th>Calculated Bonus</th>
-            <th>Override</th>
-            <th>Final</th>
-            <th>Approval</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {assignments.map((a) => {
-            const emp = employees.find((e) => e.id === a.employeeId);
-            return (
-              <tr key={a.id}>
-                <td>
-                  <input
-                    type="checkbox"
-                    checked={selectedIds.includes(a.id)}
-                    onChange={() => toggleSelect(a.id)}
-                  />
-                </td>
-                <td>
-                  {emp?.name}{" "}
-                  <div className={styles.smallText}>{emp?.department}</div>
-                </td>
-                <td>{toCurrency(a.autoCalcAmount)}</td>
-                <td>
-                  {a.overrideAmount != null
-                    ? toCurrency(a.overrideAmount)
-                    : "-"}
-                </td>
-                <td>{toCurrency(a.finalAmount)}</td>
-                <td>{a.approvalStatus}</td>
-                <td>
-                  <button onClick={() => onApprove(a.id)}>Approve</button>
-                  <button onClick={() => onReject(a.id, "Needs revision")}>
-                    Reject
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <div className="d-flex justify-content-center">
+        <table className={"square-table w-75"}>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Employee</th>
+              <th>Calculated Bonus</th>
+              <th>Override</th>
+              <th>Final</th>
+              <th>Approval</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {assignments.map((a) => {
+              const emp = employees.find((e) => e.id === a.employeeId);
+              return (
+                <tr key={a.id}>
+                  <td>
+                    <input
+                      type="checkbox"
+                      checked={selectedIds.includes(a.id)}
+                      onChange={() => toggleSelect(a.id)}
+                    />
+                  </td>
+                  <td>
+                    {emp?.name}{" "}
+                    <div className={styles.smallText}>{emp?.department}</div>
+                  </td>
+                  <td>{toCurrency(a.autoCalcAmount)}</td>
+                  <td>
+                    {a.overrideAmount != null
+                      ? toCurrency(a.overrideAmount)
+                      : "-"}
+                  </td>
+                  <td>{toCurrency(a.finalAmount)}</td>
+                  <td>{a.approvalStatus}</td>
+                  <td>
+                    <button className="table-approved-btn" onClick={() => onApprove(a.id)}>Approve</button>
+                    <button className="table-declined-btn" onClick={() => onReject(a.id, "Needs revision")}>
+                      Reject
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
@@ -1431,9 +1457,9 @@ function ReleaseTab({ assignments, cycle, onPreRelease, onRelease }) {
 
   return (
     <div>
-      <h3>Final Bonus Release</h3>
-      <div className={styles.panelCard}>
-        <h4>Pre-Release Validation</h4>
+      <h3 className={styles.header3}>Final Bonus Release</h3>
+      <div className={styles.cycleList}>
+        <h4 className={styles.cyclesh4}>Pre-Release Validation</h4>
         <div>
           <button
             onClick={() => {
@@ -1449,9 +1475,8 @@ function ReleaseTab({ assignments, cycle, onPreRelease, onRelease }) {
           breach, negative values, pending approvals.
         </div>
       </div>
-
-      <div className={styles.panelCard}>
-        <h4>Release Summary</h4>
+      <div className={styles.cycleList}>
+        <h4 className={styles.cyclesh4}>Release Summary</h4>
         <div className={styles.summaryRow}>
           <div>Total Bonus Amount</div>
           <div>{toCurrency(summary.totalAmount)}</div>
@@ -1476,7 +1501,7 @@ function ReleaseTab({ assignments, cycle, onPreRelease, onRelease }) {
         </div>
         <div style={{ marginTop: 10 }}>
           <button
-            className={styles.primaryBtn}
+            className={"submitbtn"}
             onClick={() =>
               onRelease({ confirmContinueWithWarnings: warningsOk })
             }
@@ -1503,10 +1528,10 @@ function ReportsTab({ assignments, employees, onExport }) {
 
   return (
     <div>
-      <h3>Bonus Reports</h3>
-      <div className={styles.panelCard}>
-        <h4>Cycle Wise Summary</h4>
-        <table className={styles.table}>
+      <h3 className={styles.headerh3}>Bonus Reports</h3>
+      <div className={styles.cycleList}>
+        <h4 className={styles.cyclesh4}>Cycle Wise Summary</h4>
+        <table className={"square-table w-100"}>
           <thead>
             <tr>
               <th>Cycle ID</th>
@@ -1525,7 +1550,7 @@ function ReportsTab({ assignments, employees, onExport }) {
           </tbody>
         </table>
         <div style={{ marginTop: 10 }}>
-          <button onClick={onExport}>Export Assignments CSV</button>
+          <button className="submitbtn" onClick={onExport}>Export Assignments CSV</button>
         </div>
       </div>
     </div>
