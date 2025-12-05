@@ -417,7 +417,7 @@ function HistoryDrawer({ open, assignment, onClose }) {
 }
 
 /* ---------------- Main Page ---------------- */
-export default function PayrollEmployeeAssignment({navigate}) {
+export default function PayrollEmployeeAssignment({ navigate }) {
     const [employees, setEmployees] = useState([]);
     const [structures, setStructures] = useState([]);
     const [assignments, setAssignments] = useState([]);
