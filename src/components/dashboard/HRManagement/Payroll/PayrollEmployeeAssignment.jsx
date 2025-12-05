@@ -903,6 +903,7 @@ function HistoryModal({ open, assignment, onClose }) {
 
 /* ---------------- Main Page ---------------- */
 export default function PayrollEmployeeAssignment({ navigate }) {
+
   const [employees, setEmployees] = useState([]);
   const [structures, setStructures] = useState([]);
   const [assignments, setAssignments] = useState([]);
@@ -915,6 +916,7 @@ export default function PayrollEmployeeAssignment({ navigate }) {
   const [historyOpen, setHistoryOpen] = useState(false);
   const [activeAssignment, setActiveAssignment] = useState(null);
   const [toast, setToast] = useState(null);
+
 
   async function loadAll() {
     setLoading(true);
