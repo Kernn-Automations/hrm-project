@@ -572,7 +572,7 @@ function AssignmentModal({
             <div className={styles.actionRow}>
               <button
                 type="button"
-                className={styles.btn}
+                className={"extrabtn"}
                 onClick={() => {
                   setForm((f) => ({ ...f, status: "Draft" }));
                   alert("Saved draft locally (simulate)");
@@ -582,7 +582,7 @@ function AssignmentModal({
               </button>
               <button
                 type="button"
-                className={styles.btn}
+                className={"viewbtn"}
                 onClick={() => {
                   setForm((f) => ({ ...f, status: "Published" }));
                   alert("Published (simulate)");
@@ -590,7 +590,7 @@ function AssignmentModal({
               >
                 Publish Assignment
               </button>
-              <button type="submit" className={styles.btnPrimary}>
+              <button type="submit" className={"submitbtn"}>
                 Save & Close
               </button>
             </div>
@@ -858,7 +858,7 @@ function HistoryModal({ open, assignment, onClose }) {
         </div>
 
         <div className={styles.historyBody}>
-          <table className={styles.table}>
+          <table className={"square-table w-100"}>
             <thead>
               <tr>
                 <th>Version</th>
@@ -883,13 +883,13 @@ function HistoryModal({ open, assignment, onClose }) {
 
           <div className={styles.historyActions}>
             <button
-              className={styles.btn}
+              className={"submitbtn"}
               onClick={() => alert("Download CTC Letter (simulate)")}
             >
               Download CTC Letter
             </button>
             <button
-              className={styles.btn}
+              className={"viewbtn"}
               onClick={() => alert("Export as PDF (simulate)")}
             >
               Export Assignment as PDF
